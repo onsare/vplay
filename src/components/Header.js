@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
 
 import Navigation from "./partials/Navbar";
+import Banner from "./partials/Banner";
 
 class Header extends Component {
   state = {};
@@ -9,6 +9,7 @@ class Header extends Component {
     return (
       <div>
         <Navigation />
+        <Banner />
       </div>
     );
   }
