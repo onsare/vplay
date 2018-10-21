@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
 class Footer extends Component {
-  state = {};
+  state = {
+    year: new Date().getFullYear()
+  };
   render() {
-    return <div>footer</div>;
+    return <div>vPlay &copy; {this.state.year}. All rights reserved.</div>;
   }
 }
 
