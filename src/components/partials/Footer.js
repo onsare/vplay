@@ -5,7 +5,11 @@ class Footer extends Component {
     year: new Date().getFullYear()
   };
   render() {
-    return <div>vPlay &copy; {this.state.year}. All rights reserved.</div>;
+    return (
+      <div className="footer">
+        vPlay &copy; {this.state.year}. All rights reserved.
+      </div>
+    );
   }
 }
 

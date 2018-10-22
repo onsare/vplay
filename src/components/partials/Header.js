@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-import Navigation from "./partials/Navbar";
-import Banner from "./partials/Banner";
+import Navigation from "./Navbar";
 
 class Header extends Component {
   state = {};
@@ -9,7 +8,6 @@ class Header extends Component {
     return (
       <div>
         <Navigation />
-        <Banner />
       </div>
     );
   }
