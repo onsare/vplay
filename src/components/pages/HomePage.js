@@ -6,7 +6,7 @@ class HomePage extends Component {
   state = {};
   render() {
     return (
-      <div className="vh">
+      <div>
         <Banner />
       </div>
     );

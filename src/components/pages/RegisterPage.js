@@ -6,7 +6,7 @@ class RegisterPage extends Component {
   state = {};
   render() {
     return (
-      <div className="vh">
+      <div className="page vh">
         <RegisterForm />
       </div>
     );

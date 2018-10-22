@@ -5,7 +5,7 @@ body {
   color: white;
 }
 .navbar {
-  border-bottom: 1px solid orangered;
+  border-bottom: 1px solid #dc3545;
 }
 li.nav-item {
   margin: 10px;
