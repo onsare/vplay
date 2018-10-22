@@ -41,13 +41,13 @@ export default class Navigation extends React.Component {
               <NavLink href="/categories">Categories</NavLink>
             </NavItem>
             <NavItem>
-              <Button outline color="warning">
+              <Button outline color="danger">
                 <NavLink href="/login">Login</NavLink>
               </Button>
             </NavItem>
 
             <NavItem>
-              <Button color="warning">
+              <Button color="danger">
                 <NavLink href="/register">Register</NavLink>
               </Button>
             </NavItem>

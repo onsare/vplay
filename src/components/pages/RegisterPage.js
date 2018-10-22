@@ -5,7 +5,11 @@ import RegisterForm from "../forms/RegisterForm";
 class RegisterPage extends Component {
   state = {};
   render() {
-    return <RegisterForm />;
+    return (
+      <div className="vh">
+        <RegisterForm />
+      </div>
+    );
   }
 }
 

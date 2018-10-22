@@ -5,7 +5,11 @@ import Banner from "../partials/Banner";
 class HomePage extends Component {
   state = {};
   render() {
-    return <Banner />;
+    return (
+      <div className="vh">
+        <Banner />
+      </div>
+    );
   }
 }
 
