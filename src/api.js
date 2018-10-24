@@ -6,7 +6,7 @@ export default {
   user: {
     register: user =>
       axios
-        .post(`${apiUrl}/user/register`, { user })
+        .post(`${apiUrl}/api/v1/users/#register`, { user })
         .then(res => res.data.user),
     login: credentials =>
       axios

@@ -13,6 +13,7 @@ import {
   DropdownItem,
   Button
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 import Ionicon from "react-ionicons";
 
@@ -41,27 +42,34 @@ export default class Navigation extends React.Component {
               <NavLink href="/categories">Categories</NavLink>
             </NavItem>
             <NavItem>
-              <Button outline color="danger">
-                <NavLink href="/login">Login</NavLink>
-              </Button>
+              <Link to="/login">
+                <Button outline color="danger">
+                  Login
+                </Button>
+              </Link>
             </NavItem>
 
             <NavItem>
-              <Button color="danger">
-                <NavLink href="/register">Register</NavLink>
-              </Button>
+              <Link to="/register">
+                <Button color="danger">Register</Button>
+              </Link>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
+                <img
+                  className="avatar"
+                  src="./assets/images/avatar.png"
+                  alt="username"
+                />
                 Account
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>
+                <DropdownItem href="/profile">
                   {" "}
                   <Ionicon icon="ios-person" fontSize="25px" color="#C9C9C9" />
                   Profile
                 </DropdownItem>
-                <DropdownItem>
+                <DropdownItem href="/settings">
                   <Ionicon
                     icon="ios-settings"
                     fontSize="25px"

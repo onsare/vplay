@@ -13,33 +13,35 @@ export const userLoggedOut = () => ({
 
 export const register = data => dispatch =>
   api.user.register(data).then(user => {
-    localStorage.kcsWebToken = user.token;
+    localStorage.vPlayToken = user.token;
     setAuthorizationHeader(user.token);
     dispatch(userLoggedIn(user));
   });
 
 export const login = credentials => dispatch =>
   api.user.login(credentials).then(user => {
-    localStorage.kcsWebToken = user.token;
+    localStorage.vPlayToken = user.token;
     setAuthorizationHeader(user.token);
     dispatch(userLoggedIn(user));
   });
 
 export const logout = () => dispatch => {
-  localStorage.removeItem("kcsWebToken");
+  localStorage.removeItem("vPlayToken");
   setAuthorizationHeader();
   dispatch(userLoggedOut());
 };
 
-export const confirm = token => dispatch =>
-  api.user.confirm(token).then(user => {
-    localStorage.kcsWebToken = user.token;
-    dispatch(userLoggedIn(user));
-  });
+//TODO
 
-export const resetPasswordRequest = ({ email }) => () =>
-  api.user.resetPasswordRequest(email);
+// export const confirm = token => dispatch =>
+//   api.user.confirm(token).then(user => {
+//     localStorage.vPlayToken = user.token;
+//     dispatch(userLoggedIn(user));
+//   });
 
-export const validateToken = token => () => api.user.validateToken(token);
+// export const resetPasswordRequest = ({ email }) => () =>
+//   api.user.resetPasswordRequest(email);
 
-export const resetPassword = data => () => api.user.resetPassword(data);
+// export const validateToken = token => () => api.user.validateToken(token);
+
+// export const resetPassword = data => () => api.user.resetPassword(data);
