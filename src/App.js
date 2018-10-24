@@ -9,6 +9,7 @@ import RegisterPage from "./components/pages/RegisterPage";
 import Footer from "./components/partials/Footer";
 import Profile from "./components/pages/ProfilePage";
 import Settings from "./components/pages/SettingsPage";
+import Dashboard from "./components/pages/Dashboard";
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path="/" exact component={HomePage} />
           <Route path="/login" exact component={LoginPage} />
           <Route path="/register" exact component={RegisterPage} />
+          <Route path="/dashboard" exact component={Dashboard} />
           <Route path="/profile" exact component={Profile} />
           <Route path="/settings" exact component={Settings} />
         </Switch>
