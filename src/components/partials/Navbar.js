@@ -41,7 +41,7 @@ class Navigation extends React.Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             {!user && (
-              <div>
+              <div style={{ display: "inherit" }}>
                 <NavItem>
                   <Link to="/login">
                     <Button outline color="danger">
