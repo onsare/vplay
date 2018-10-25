@@ -10,6 +10,9 @@ import Footer from "./components/partials/Footer";
 import Profile from "./components/pages/ProfilePage";
 import Settings from "./components/pages/SettingsPage";
 import Dashboard from "./components/pages/Dashboard";
+import ProtectedRoute from "./components/routes/ProtectedRoute";
+import GuestRoute from "./components/routes/GuestRoute";
+import Categories from "./components/pages/Categories";
 
 class App extends Component {
   render() {
@@ -18,11 +21,12 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/login" exact component={LoginPage} />
-          <Route path="/register" exact component={RegisterPage} />
-          <Route path="/dashboard" exact component={Dashboard} />
-          <Route path="/profile" exact component={Profile} />
-          <Route path="/settings" exact component={Settings} />
+          <GuestRoute path="/login" exact component={LoginPage} />
+          <GuestRoute path="/register" exact component={RegisterPage} />
+          <ProtectedRoute path="/dashboard" exact component={Dashboard} />
+          <ProtectedRoute path="/categories" exact component={Categories} />
+          <ProtectedRoute path="/profile" exact component={Profile} />
+          <ProtectedRoute path="/settings" exact component={Settings} />
         </Switch>
         <Footer />
       </div>

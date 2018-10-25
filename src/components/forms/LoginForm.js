@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
       this.props
         .submit(data)
         .catch(err =>
-          this.setState({ errors: err.response.data.errors, loading: false })
+          this.setState({ errors: err.response.data, loading: false })
         );
     }
   };
@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
     const errors = {};
 
     if (!data.email) errors.email = "Email should not be empty";
-    if (!isEmail(data.email)) errors.email = "Email must be a valid email";
+
     if (!data.password) errors.password = "Password should not be empty";
 
     return errors;
@@ -54,17 +54,17 @@ class LoginForm extends React.Component {
 
   render() {
     const { data, errors, loading } = this.state;
-    const message = "Loading..";
+    const message = "Loading...";
     return (
       <div>
         <h1 className="mb20">Login to your account</h1>
         {loading && <LoadingState message={message} />}
         <Form onSubmit={this.onSubmit}>
-          {errors.message && (
-            <div className="alert alert-danger">{errors.message}</div>
+          {errors.email && (
+            <div className="alert alert-danger">{errors.email}</div>
           )}
           <FormGroup>
-            <Label>Email</Label>
+            <Label>Email/Phone number</Label>
             <Input
               type="email"
               placeholder="Your email address"

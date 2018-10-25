@@ -4,7 +4,7 @@ import loader from "./loading.gif";
 const LoadingState = ({ message }) => (
   <div className="loading">
     <img src={loader} alt="loading..." />
-    <p>{message}</p>
+    <p className="loading-message">{message}</p>
   </div>
 );
 

@@ -27,7 +27,6 @@ h5,
 h6 {
   margin: 0;
   color: #444;
-  font-weight: 700;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 1.5px;
 }
@@ -50,15 +49,7 @@ p {
 .btn {
   font-size: 1.5rem;
 }
-.btn-primary {
-  background-color: #dc3545;
-  border-color: #ca2a3a;
-}
 
-.btn-primary:hover {
-  background-color: #db4251;
-  border-color: #ca2a3a;
-}
 .navbar-light .navbar-nav .nav-link {
   color: rgb(43, 42, 42);
 }
@@ -81,13 +72,6 @@ p {
 }
 li.nav-item {
   margin: 10px;
-}
-
-.navbar-light .navbar-nav .nav-link:active {
-  color: rgb(212, 142, 11);
-}
-.navbar-light .navbar-nav .nav-link:hover {
-  color: rgb(7, 7, 7);
 }
 
 .navbar-brand {
@@ -115,7 +99,31 @@ li.nav-item {
 .mb20 {
   margin-bottom: 20px;
 }
-
+.loading {
+  position: fixed;
+  /* background-color: rgba(220, 53, 69, 0.4); */
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  color: #fff;
+}
+.loading img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+}
+.loading-message {
+  position: absolute;
+  color: #1b1b1b;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .required {
   color: red;
 }
@@ -123,6 +131,7 @@ li.nav-item {
 input[type="email"],
 input[type="password"],
 input[type="text"],
+input[type="date"],
 #location {
   height: 35px;
   font-size: 14px;
@@ -138,7 +147,7 @@ input[type="text"],
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(220, 53, 69, 0.5);
   height: 100vh;
   position: absolute;
   top: 0;
@@ -163,8 +172,25 @@ input[type="text"],
   border-radius: 5px; /* 5px rounded corners */
   margin-top: 25px;
 }
+
+.playlist {
+  background: #333;
+}
+.video-details h2 {
+  color: #fff;
+  margin-top: 15px;
+}
+.video-details h3,
+h4 {
+  margin-top: 5px;
+  color: rgb(218, 210, 210);
+}
+hr {
+  border-color: #dc3545;
+}
 .footer {
   position: relative;
+  margin-top: 20px;
   text-align: center;
   background: #1b1b1b;
   color: #fff;

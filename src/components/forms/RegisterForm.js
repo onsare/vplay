@@ -9,33 +9,20 @@ import {
   Row,
   FormFeedback
 } from "reactstrap";
-import { isEmail } from "validator";
+
 import LoadingState from "../states/LoadingState";
 import { Link } from "react-router-dom";
+import { isEmail } from "validator";
 
 class RegisterForm extends React.Component {
   state = {
     data: {
-      title: "",
-      gender: "",
-      firstName: "",
-      middleName: "",
-      lastName: "",
-      primaryEmail: "",
-
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone: "",
       password: "",
-      confirmPassword: "",
-      areaCode: "",
-      phoneNumber: "",
-      nationalId: "",
-
-      streetAddressLine1: "",
-      streetAddressLine2: "",
-      city: "",
-      state: "",
-      location: "",
-      membership: "",
-      role: "Member"
+      location: ""
     },
     errors: {},
     loading: false,
@@ -60,7 +47,7 @@ class RegisterForm extends React.Component {
       this.props
         .submit(data)
         .catch(err =>
-          this.setState({ errors: err.response.data.errors, loading: false })
+          this.setState({ errors: err.response.data, loading: false })
         );
     }
   };
@@ -68,22 +55,11 @@ class RegisterForm extends React.Component {
   validate = data => {
     const errors = {};
 
-    if (!data.firstName) errors.firstName = "First name should not be empty";
-    if (!data.lastName) errors.lastName = "Last name should not be empty";
-    if (!data.primaryEmail)
-      errors.primaryEmail = "Primary email should not be empty";
-    if (!isEmail(data.primaryEmail))
-      errors.primaryEmail = "Primary Email must be a valid email";
-
+    if (!data.email) errors.email = "This field should not be empty";
+    if (!isEmail(data.email)) errors.email = "Email must be a valid email";
     if (!data.password) errors.password = "Password should not be empty";
-    if (data.confirmPassword !== data.password)
-      errors.confirmPassword = "passwords do not match";
-    if (!data.confirmPassword)
-      errors.confirmPassword = "Confirm Password should not be empty";
-
-    if (!data.areaCode) errors.areaCode = "Area code should not be empty";
-    if (!data.phoneNumber)
-      errors.phoneNumber = "Phone number should not be empty";
+    if (!data.first_name) errors.first_name = "Required field";
+    if (!data.last_name) errors.last_name = "Required field";
 
     return errors;
   };
@@ -95,6 +71,9 @@ class RegisterForm extends React.Component {
       <div>
         {loading && <LoadingState message={message} />}
         <Form onSubmit={this.onSubmit}>
+          {errors.email && (
+            <div className="alert alert-danger">{errors.email}</div>
+          )}
           <Row>
             <Col sm="6">
               <FormGroup>
@@ -103,12 +82,12 @@ class RegisterForm extends React.Component {
                 </Label>
                 <Input
                   type="text"
-                  name="firstName"
-                  value={data.firstName}
+                  name="first_name"
+                  value={data.first_name}
                   onChange={this.onChange}
-                  invalid={!!errors.firstName}
+                  invalid={!!errors.first_name || !!errors.first_name}
                 />
-                <FormFeedback>{errors.firstName}</FormFeedback>
+                <FormFeedback>{errors.first_name}</FormFeedback>
               </FormGroup>
             </Col>
 
@@ -119,12 +98,12 @@ class RegisterForm extends React.Component {
                 </Label>
                 <Input
                   type="text"
-                  name="lastName"
-                  value={data.lastName}
+                  name="last_name"
+                  value={data.last_name}
                   onChange={this.onChange}
-                  invalid={!!errors.lastName}
+                  invalid={!!errors.last_name || !!errors.last_name}
                 />
-                <FormFeedback>{errors.lastName}</FormFeedback>
+                <FormFeedback>{errors.last_name}</FormFeedback>
               </FormGroup>
             </Col>
           </Row>
@@ -134,23 +113,33 @@ class RegisterForm extends React.Component {
               Email <span className="required">*</span>
             </Label>
             <Input
-              type="email"
+              type="text"
               placeholder="ex: myname@example.com"
-              name="primaryEmail"
-              value={data.primaryEmail}
+              name="email"
+              value={data.email}
               onChange={this.onChange}
-              invalid={!!errors.primaryEmail || !!errors.message}
+              invalid={!!errors.email || !!errors.email}
             />
-            <FormFeedback>{errors.primaryEmail}</FormFeedback>
-            <div className="error">
-              {errors.message ? errors.message.email : null}
-            </div>
-            <span>example@example.com</span>
+            <FormFeedback>{errors.email}</FormFeedback>
+            <div className="error">{errors.email ? errors.email : null}</div>
+          </FormGroup>
+          <FormGroup>
+            <Label>Phone(International format)</Label>
+            <Input
+              type="text"
+              placeholder="ex: +254712345678"
+              name="phone"
+              value={data.phone}
+              onChange={this.onChange}
+              invalid={!!errors.phone || !!errors.message}
+            />
+            <FormFeedback>{errors.emailOrPhone}</FormFeedback>
+            <div className="error">{errors.phone ? errors.phone : null}</div>
           </FormGroup>
 
           <FormGroup>
             <Label>
-              Choose Password <span className="required">*</span>
+              Password <span className="required">*</span>
             </Label>
             <Input
               type="password"
@@ -160,36 +149,6 @@ class RegisterForm extends React.Component {
               invalid={!!errors.password}
             />
             <FormFeedback>{errors.password}</FormFeedback>
-          </FormGroup>
-          <FormGroup>
-            <Label>
-              Confirm Your Chosen Password <span className="required">*</span>
-            </Label>
-            <Input
-              type="password"
-              name="confirmPassword"
-              value={data.confirmPassword}
-              onChange={this.onChange}
-              invalid={!!errors.confirmPassword}
-            />
-            <FormFeedback>{errors.confirmPassword}</FormFeedback>
-          </FormGroup>
-
-          <FormGroup>
-            <Label>
-              Phone Number <span className="required">*</span>
-            </Label>
-
-            <Input
-              type="text"
-              placeholder="ex: +254712345678 "
-              name="phoneNumber"
-              value={data.phoneNumber}
-              onChange={this.onChange}
-              invalid={!!errors.phoneNumber}
-            />
-            <FormFeedback>{errors.phoneNumber}</FormFeedback>
-            <span>International format</span>
           </FormGroup>
 
           <FormGroup>
@@ -215,19 +174,21 @@ class RegisterForm extends React.Component {
             <Label check>
               <Input
                 type="checkbox"
-                checked={this.state.checked}
+                defaultChecked={this.state.checked}
                 onClick={this.onClick}
               />{" "}
               By registering, you agree to our{" "}
               <Link
-                style={{ color: "#557438", textDecoration: "underline" }}
+                style={{ color: "#dc3545", textDecoration: "underline" }}
                 to="/privacy"
               >
                 terms and privacy policies.
               </Link>
             </Label>
           </FormGroup>
-          <Button disabled={!this.state.checked}>Register</Button>
+          <Button block color="danger" disabled={!this.state.checked}>
+            Register
+          </Button>
         </Form>
       </div>
     );

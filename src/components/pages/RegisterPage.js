@@ -15,7 +15,7 @@ import { register } from "../../redux/actions/user";
 
 class RegisterPage extends React.Component {
   submit = data =>
-    this.props.register(data).then(() => this.props.history.push("/review"));
+    this.props.register(data).then(() => this.props.history.push("/dashboard"));
 
   render() {
     return (
@@ -30,7 +30,7 @@ class RegisterPage extends React.Component {
               <CardTitle>Please register below</CardTitle>
 
               <CardSubtitle>
-                All fields with an asterisk (*) are mandatory.
+                All fields with an asterisk (*) are required.
               </CardSubtitle>
               <CardBody>
                 <RegisterForm submit={this.submit} />
