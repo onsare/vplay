@@ -19,26 +19,28 @@ class RegisterPage extends React.Component {
 
   render() {
     return (
-      <Container>
-        <Row className="page mb20">
-          <Col
-            sm={{ size: 5, offset: 7 }}
-            xs="12"
-            className="form-align-center"
-          >
-            <Card>
-              <CardTitle>Please register below</CardTitle>
+      <div className="register">
+        <Container>
+          <Row>
+            <Col
+              sm={{ size: 5, offset: 7 }}
+              xs="12"
+              className="form-align-center page"
+            >
+              <Card>
+                <CardTitle>Please register below</CardTitle>
 
-              <CardSubtitle>
-                All fields with an asterisk (*) are required.
-              </CardSubtitle>
-              <CardBody>
-                <RegisterForm submit={this.submit} />
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+                <CardSubtitle>
+                  All fields with an asterisk (*) are required.
+                </CardSubtitle>
+                <CardBody>
+                  <RegisterForm submit={this.submit} />
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     );
   }
 }

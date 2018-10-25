@@ -11,21 +11,23 @@ class LoginPage extends React.Component {
 
   render() {
     return (
-      <Container>
-        <Row className="page vh">
-          <Col
-            sm={{ size: 5, offset: 7 }}
-            xs="12"
-            className="form-align-center"
-          >
-            <Card>
-              <CardBody>
-                <LoginForm submit={this.submit} />
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+      <div className="login">
+        <Container>
+          <Row className="vh ">
+            <Col
+              sm={{ size: 5, offset: 7 }}
+              xs="12"
+              className="form-align-center page"
+            >
+              <Card>
+                <CardBody>
+                  <LoginForm submit={this.submit} />
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     );
   }
 }

@@ -99,6 +99,9 @@ li.nav-item {
 .mb20 {
   margin-bottom: 20px;
 }
+mt80 {
+  margin-top: 80px;
+}
 .loading {
   position: fixed;
   /* background-color: rgba(220, 53, 69, 0.4); */
@@ -162,6 +165,17 @@ input[type="date"],
 .vh {
   height: 95vh;
 }
+.login {
+  background-image: url(/assets/images/bg-login.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.register {
+  background-image: url(/assets/images/bg-register.jpg);
+  background-position: center;
+  background-size: cover;
+  background-color: #1b1b1b;
+}
 .card {
   border: 1px solid #ccc;
   padding: 20px;
@@ -190,7 +204,6 @@ hr {
 }
 .footer {
   position: relative;
-  margin-top: 20px;
   text-align: center;
   background: #1b1b1b;
   color: #fff;
