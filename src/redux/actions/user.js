@@ -2,7 +2,7 @@ import api from "../../api";
 import { USER_LOGGED_IN, USER_LOGGED_OUT } from "../types";
 import setAuthorizationHeader from "../../utils/setAuthorizationHeader";
 
-const token = "xxxxxxxxxxxxxxxxxxxxxxxxxxx";
+const token = "0P1gctuU35xIHygfz4uJafGbjipc9t";
 
 export const userLoggedIn = user => ({
   type: USER_LOGGED_IN,
