@@ -18,6 +18,8 @@ import Ionicon from "react-ionicons";
 
 import { connect } from "react-redux";
 
+import { logout } from "../../redux/actions/user";
+
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
@@ -95,7 +97,7 @@ class Navigation extends React.Component {
                     Settings
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>
+                  <DropdownItem onClick={() => this.props.logout()}>
                     <Ionicon
                       icon="ios-log-out"
                       fontSize="25px"
@@ -119,4 +121,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Navigation);
+export default connect(
+  mapStateToProps,
+  { logout }
+)(Navigation);

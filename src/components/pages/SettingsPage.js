@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Button } from "reactstrap";
+import { connect } from "react-redux";
+
+import { logout } from "../../redux/actions/user";
 
 class Settings extends Component {
   state = {};
@@ -15,7 +18,9 @@ class Settings extends Component {
           </Row>
           <Row>
             <Col sm={{ size: 5, offset: 2 }}>
-              <Button color="danger">Sign Out</Button>
+              <Button onClick={() => this.props.logout()} color="danger">
+                Sign Out
+              </Button>
             </Col>
           </Row>
         </Container>
@@ -24,4 +29,4 @@ class Settings extends Component {
   }
 }
 
-export default Settings;
+export default connect({ logout })(Settings);

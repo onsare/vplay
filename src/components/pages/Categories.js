@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from "reactstrap";
 import { connect } from "react-redux";
 import LoadingState from "../states/LoadingState";
 import Ionicon from "react-ionicons";
+import { Link } from "react-router-dom";
 
 import { fetchCategories } from "../../redux/actions/categories";
 
@@ -35,14 +36,16 @@ class Categories extends Component {
                         <h2>{item.name}</h2>
                         <p>{item.description}</p>
                       </div>
-                      <Button color="danger">
-                        <Ionicon
-                          icon="ios-play"
-                          fontSize="15px"
-                          color="#C9C9C9"
-                        />
-                        Explore
-                      </Button>
+                      <Link to={`/categories/${item.name}`}>
+                        <Button color="danger">
+                          <Ionicon
+                            icon="ios-play"
+                            fontSize="15px"
+                            color="#C9C9C9"
+                          />
+                          Explore
+                        </Button>
+                      </Link>
                       <hr />
                     </Col>
                   </Row>
