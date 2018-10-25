@@ -8,6 +8,9 @@ class HomePage extends Component {
     return (
       <div>
         <Banner />
+        <div className="banner-message">
+          <h1>Live. Laugh. Love.</h1>
+        </div>
       </div>
     );
   }

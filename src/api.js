@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "//api.smartduka.busaracenterlab.org";
+const baseUrl = "http://api.smartduka.busaracenterlab.org";
 
 export default {
   user: {
@@ -34,6 +34,12 @@ export default {
       axios
         .get(
           `${"https://cors-anywhere.herokuapp.com/"}${baseUrl}/api/v1/categories`
+        )
+        .then(res => res.data),
+    fetchVideosByCategoryId: id =>
+      axios
+        .get(
+          `${"https://cors-anywhere.herokuapp.com/"}${baseUrl}/api/v1/videos/?category_id=${id}`
         )
         .then(res => res.data)
   }

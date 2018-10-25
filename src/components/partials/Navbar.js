@@ -38,7 +38,9 @@ class Navigation extends React.Component {
     const { user } = this.props;
     return (
       <Navbar color="faded" light expand="md" fixed="top">
-        <NavbarBrand href="/">vPlay</NavbarBrand>
+        <NavbarBrand style={{ marginLeft: "25px" }} href="/">
+          <img src="./assets/images/logo.png" alt="Logo" width="45px" />
+        </NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>

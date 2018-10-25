@@ -36,7 +36,7 @@ class Categories extends Component {
                         <h2>{item.name}</h2>
                         <p>{item.description}</p>
                       </div>
-                      <Link to={`/categories/${item.name}`}>
+                      <Link to={`/categories/${item.id}`}>
                         <Button color="danger">
                           <Ionicon
                             icon="ios-play"

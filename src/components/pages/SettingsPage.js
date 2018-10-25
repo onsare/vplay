@@ -29,4 +29,7 @@ class Settings extends Component {
   }
 }
 
-export default connect({ logout })(Settings);
+export default connect(
+  null,
+  { logout }
+)(Settings);

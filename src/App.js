@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+import "moment-timezone";
 
 import "./App.css";
 import Header from "./components/partials/Header";
@@ -28,7 +29,11 @@ class App extends Component {
           <ProtectedRoute path="/categories" exact component={Categories} />
           <ProtectedRoute path="/profile" exact component={Profile} />
           <ProtectedRoute path="/settings" exact component={Settings} />
-          <ProtectedRoute path="/categories/:name" exact component={Category} />
+          <ProtectedRoute
+            path="/categories/:category_id"
+            exact
+            component={Category}
+          />
         </Switch>
         <Footer />
       </div>

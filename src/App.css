@@ -149,6 +149,17 @@ input[type="date"],
   height: 100vh;
 }
 
+.banner-message h1 {
+  position: absolute;
+  top: 250px;
+  z-index: 99;
+  font-size: 65px;
+  background-color: #444;
+  color: yellow;
+  font-weight: bold;
+  padding: 15px;
+}
+
 .overlay {
   background-color: rgba(220, 53, 69, 0.5);
   height: 100vh;
@@ -161,10 +172,12 @@ input[type="date"],
 
 .page {
   margin-top: 80px;
+  min-height: 100vh;
 }
 .vh {
-  height: 95vh;
+  min-height: 95vh;
 }
+
 .login {
   background-image: url(/assets/images/bg-login.jpg);
   background-position: center;
@@ -175,6 +188,9 @@ input[type="date"],
   background-position: center;
   background-size: cover;
   background-color: #1b1b1b;
+}
+.small p {
+  font-size: 12px;
 }
 .card {
   border: 1px solid #ccc;
@@ -198,6 +214,10 @@ input[type="date"],
 h4 {
   margin-top: 5px;
   color: rgb(218, 210, 210);
+}
+.video-hover:hover {
+  background: #444;
+  cursor: pointer;
 }
 hr {
   border-color: #dc3545;
