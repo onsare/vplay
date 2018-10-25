@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "//api.smartduka.busaracenterlab.org";
+const baseUrl = "http://api.smartduka.busaracenterlab.org";
 
 export default {
   user: {
