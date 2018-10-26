@@ -69,5 +69,14 @@ my-app/
     App.js
     index.css
     index.js
-
 ```
+
+## Screens
+
+Login Page
+
+![login](../master/screenshots/login.png)
+
+Register Page
+
+![Register](../master/screenshots/register.png)
