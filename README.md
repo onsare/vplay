@@ -84,3 +84,7 @@ Register Page
 Dashboard
 
 ![Dashboard](../master/screenshots/dash.png)
+
+Categories
+
+![Categories](../master/screenshots/categories.png)
