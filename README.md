@@ -80,3 +80,7 @@ Login Page
 Register Page
 
 ![Register](../master/screenshots/register.png)
+
+Dashboard
+
+![Dashboard](../master/screenshots/dash.png)
